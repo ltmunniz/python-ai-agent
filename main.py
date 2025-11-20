@@ -2,9 +2,12 @@ import sys
 import os
 from google import genai
 from google.genai import types
-
+from functions.get_files_info import get_files_info
+from prompts import system_prompt
 
 def main():
+    
+    get_files_info("calculator", ".")
 
     verbose = "--verbose" in sys.argv
     args = []
@@ -34,9 +37,11 @@ def main():
 
 
 def generate_content(client, messages, verbose):
+    
     response = client.models.generate_content(
         model="gemini-2.0-flash-001",
         contents=messages,
+        config=types.GenerateContentConfig(system_instruction=system_prompt),
     )
         
     if verbose:
