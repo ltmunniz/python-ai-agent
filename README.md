@@ -17,7 +17,7 @@ Course Overview
 4. Agents
 - Give your tool a proper feedback loop to make it truly "agentic" and fix a real bug
 
-
+##
 Motivation
 Quick Start
 Usage
